@@ -48,7 +48,9 @@
           placeholder="{{ section.settings.search_placeholder }}"
           value="{{ search.terms | escape }}"
         >
-        <span aria-hidden="true" class="lv-search__icon"></span>
+        <button type="submit" class="lv-search__submit" aria-label="Search">
+          <span aria-hidden="true" class="lv-search__icon"></span>
+        </button>
       </form>
     </div>
 
@@ -57,7 +59,10 @@
       <a href="{{ routes.root_url }}#cats">Categories</a>
       <a href="{{ routes.root_url }}#service">Repairs</a>
       <a href="{{ routes.root_url }}#visit">Visit</a>
-      <a href="{{ routes.cart_url }}" class="lv-cart">Cart {{ cart.item_count }}</a>
+      <a href="{{ routes.cart_url }}" class="lv-cart">
+        <span>Cart</span>
+        <strong>{{ cart.item_count }}</strong>
+      </a>
     </nav>
 
     <button
@@ -75,8 +80,10 @@
   <div id="lv-mobile-nav" class="lv-mobile-nav" hidden>
     <form action="{{ routes.search_url }}" method="get" role="search" class="lv-search">
       <label class="visually-hidden" for="lv-search-mobile">Search products</label>
-      <input id="lv-search-mobile" type="search" name="q" placeholder="Search products">
-      <span aria-hidden="true" class="lv-search__icon"></span>
+      <input id="lv-search-mobile" type="search" name="q" placeholder="{{ section.settings.search_placeholder }}">
+      <button type="submit" class="lv-search__submit" aria-label="Search">
+        <span aria-hidden="true" class="lv-search__icon"></span>
+      </button>
     </form>
     <nav aria-label="Mobile navigation">
       <a href="{{ routes.root_url }}#shop">Shop Products</a>
@@ -97,6 +104,7 @@
       var open = nav.hasAttribute('hidden');
       if (open) { nav.removeAttribute('hidden'); } else { nav.setAttribute('hidden', ''); }
       toggle.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('lv-menu-open', open);
     });
   })();
 </script>
