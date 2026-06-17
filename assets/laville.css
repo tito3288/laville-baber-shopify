@@ -182,17 +182,8 @@ main {
 .lv-header__logo {
   display: inline-flex;
   align-items: center;
-  min-height: 64px;
-  border: 1px solid rgba(183, 195, 207, 0.12);
-  border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  padding: 7px 9px;
   flex-shrink: 0;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-.lv-header__logo:hover {
-  border-color: rgba(187, 64, 39, 0.36);
+  line-height: 0;
 }
 .lv-header__logo img {
   height: 48px;
@@ -458,10 +449,7 @@ main {
 }
 .lv-hero .lv-eyebrow {
   display: inline-flex;
-  border: 1px solid rgba(187, 64, 39, 0.26);
-  background: rgba(187, 64, 39, 0.12);
-  border-radius: 999px;
-  padding: 8px 16px;
+  color: var(--lv-accent);
   letter-spacing: 0.1em;
 }
 
