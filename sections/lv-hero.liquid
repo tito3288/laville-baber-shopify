@@ -2,7 +2,7 @@
 
 <section class="lv-hero">
   <div class="lv-container lv-hero__inner">
-    <div data-reveal="fade-left">
+    <div class="lv-hero__copy" data-reveal="fade-left">
       {%- if section.settings.eyebrow != blank -%}
         <p class="lv-eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
@@ -16,10 +16,52 @@
           <a href="{{ section.settings.button_link_2 | default: '#service' }}" class="lv-btn lv-btn--outline">{{ section.settings.button_label_2 }}</a>
         {%- endif -%}
       </div>
+      <dl class="lv-hero__trust" aria-label="Store highlights">
+        {%- if section.settings.trust_1 != blank -%}
+          <div>
+            <dt>{{ section.settings.trust_1 }}</dt>
+            <dd>{{ section.settings.trust_1_label }}</dd>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.trust_2 != blank -%}
+          <div>
+            <dt>{{ section.settings.trust_2 }}</dt>
+            <dd>{{ section.settings.trust_2_label }}</dd>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.trust_3 != blank -%}
+          <div>
+            <dt>{{ section.settings.trust_3 }}</dt>
+            <dd>{{ section.settings.trust_3_label }}</dd>
+          </div>
+        {%- endif -%}
+      </dl>
     </div>
 
-    <div data-reveal="fade-right" style="--reveal-delay: 120ms" class="lv-hero__panel">
-      <div class="lv-hero__stage" aria-label="Featured barber tools">
+    <figure data-reveal="fade-right" style="--reveal-delay: 120ms" class="lv-hero__panel">
+      <div class="lv-hero__stage">
+        {%- assign hero_image_alt = section.settings.image_alt | default: section.settings.hero_image.alt | default: 'Professional barber supply tools on a shop counter' -%}
+        {%- if section.settings.hero_image != blank -%}
+          {{
+            section.settings.hero_image
+            | image_url: width: 1400
+            | image_tag:
+              class: 'lv-hero__image',
+              widths: '600, 900, 1200, 1400',
+              sizes: '(min-width: 990px) 45vw, 100vw',
+              alt: hero_image_alt,
+              loading: 'eager'
+          }}
+        {%- else -%}
+          <img
+            src="{{ 'laville-hero-counter.png' | asset_url }}"
+            alt="{{ hero_image_alt | escape }}"
+            class="lv-hero__image"
+            width="1600"
+            height="1000"
+            loading="eager"
+          >
+        {%- endif -%}
         {%- if section.settings.badge_text != blank -%}
           <div class="lv-hero__badge">{{ section.settings.badge_text }}</div>
         {%- endif -%}
@@ -27,16 +69,8 @@
           <p class="lv-hero__caption-eyebrow">{{ section.settings.caption_eyebrow }}</p>
           <p class="lv-hero__caption-title">{{ section.settings.caption_title }}</p>
         </div>
-        <div class="lv-hero__tool lv-hero__tool--a">
-          <div class="lv-hero__tool-a1"></div>
-          <div class="lv-hero__tool-a2"></div>
-        </div>
-        <div class="lv-hero__tool lv-hero__tool--b">
-          <div class="lv-hero__tool-b1"></div>
-        </div>
-        <div class="lv-hero__bar-accent"></div>
       </div>
-    </div>
+    </figure>
   </div>
 </section>
 
@@ -44,17 +78,26 @@
 {
   "name": "LV Hero",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Family-owned over 60 years" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Barber supply made clean, simple, local." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "LaVille Barber Supply & Ed Vogel Company stocks barber and groomer essentials with practical service, sharp pricing, and repair know-how." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Family-owned barber supply & repair" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Barber supply built for working pros." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Shop clippers, blades, shears, capes, and sanitation essentials from a South Bend family-owned counter with sharpening, grinding, and repair know-how." },
     { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop Featured Items" },
     { "type": "url", "id": "button_link", "label": "Primary button link" },
     { "type": "text", "id": "button_label_2", "label": "Secondary button label", "default": "Repairs & Sharpening" },
     { "type": "url", "id": "button_link_2", "label": "Secondary button link" },
-    { "type": "header", "content": "Decorative panel" },
-    { "type": "text", "id": "badge_text", "label": "Badge", "default": "Shop ready" },
-    { "type": "text", "id": "caption_eyebrow", "label": "Caption eyebrow", "default": "Featured kit" },
-    { "type": "text", "id": "caption_title", "label": "Caption title", "default": "Clippers, blades, shears & repair support" }
+    { "type": "header", "content": "Trust row" },
+    { "type": "text", "id": "trust_1", "label": "Trust item 1", "default": "60+ years" },
+    { "type": "text", "id": "trust_1_label", "label": "Trust label 1", "default": "Family-owned" },
+    { "type": "text", "id": "trust_2", "label": "Trust item 2", "default": "South Bend" },
+    { "type": "text", "id": "trust_2_label", "label": "Trust label 2", "default": "Indiana counter" },
+    { "type": "text", "id": "trust_3", "label": "Trust item 3", "default": "Sharpening" },
+    { "type": "text", "id": "trust_3_label", "label": "Trust label 3", "default": "Repairs & service" },
+    { "type": "header", "content": "Hero media" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "image_alt", "label": "Hero image alt text", "default": "Professional barber supply tools on a shop counter" },
+    { "type": "text", "id": "badge_text", "label": "Badge", "default": "Counter stocked" },
+    { "type": "text", "id": "caption_eyebrow", "label": "Caption eyebrow", "default": "Pro counter" },
+    { "type": "text", "id": "caption_title", "label": "Caption title", "default": "Clippers, blades, shears, capes & repair support" }
   ],
   "presets": [{ "name": "LV Hero" }]
 }

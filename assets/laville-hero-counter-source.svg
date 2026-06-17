@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Barber supply counter with clippers, shears, blades, capes, and repair tools">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071827"/>
+      <stop offset="0.48" stop-color="#0f2535"/>
+      <stop offset="1" stop-color="#132f42"/>
+    </linearGradient>
+    <linearGradient id="counter" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#182736"/>
+      <stop offset="0.55" stop-color="#0b1621"/>
+      <stop offset="1" stop-color="#050d15"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f4e8"/>
+      <stop offset="0.28" stop-color="#adb8c2"/>
+      <stop offset="0.62" stop-color="#eef0ef"/>
+      <stop offset="1" stop-color="#657381"/>
+    </linearGradient>
+    <linearGradient id="clipper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4efe1"/>
+      <stop offset="0.45" stop-color="#c6bc99"/>
+      <stop offset="1" stop-color="#172635"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="24%" r="54%">
+      <stop offset="0" stop-color="#bb4027" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#0a4a73" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#071827" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="26" stdDeviation="22" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="smallShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity="0.36"/>
+    </filter>
+    <pattern id="grain" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M5 12h22M38 8h12M13 38h38M48 50h10M3 58h18" stroke="#ffffff" stroke-opacity="0.045" stroke-width="2"/>
+      <circle cx="52" cy="22" r="1.5" fill="#ffffff" fill-opacity="0.055"/>
+      <circle cx="25" cy="52" r="1" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <rect width="1600" height="1000" fill="url(#grain)"/>
+
+  <g opacity="0.45">
+    <rect x="1010" y="90" width="215" height="150" rx="14" fill="#142b3d" stroke="#395065"/>
+    <rect x="1250" y="105" width="185" height="124" rx="12" fill="#1a3449" stroke="#3a5165"/>
+    <rect x="1062" y="270" width="305" height="46" rx="23" fill="#0b1824" stroke="#2a3d4f"/>
+    <rect x="220" y="145" width="330" height="32" rx="16" fill="#0b1824" stroke="#2a3d4f"/>
+  </g>
+
+  <path d="M0 675c226-68 434-90 640-66 258 29 490 1 739-72 83-24 156-40 221-47v510H0Z" fill="#06101a" opacity="0.72"/>
+  <path d="M0 718c233-44 474-52 722-24 318 37 594 7 878-72v378H0Z" fill="url(#counter)"/>
+  <path d="M0 716c287-32 574-27 862 13 254 35 495 12 738-70" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="5"/>
+
+  <g filter="url(#softShadow)" transform="rotate(-9 640 555)">
+    <rect x="470" y="325" width="190" height="455" rx="58" fill="#071827" opacity="0.9"/>
+    <rect x="490" y="296" width="184" height="470" rx="54" fill="url(#clipper)" stroke="#f6f0dd" stroke-opacity="0.5" stroke-width="5"/>
+    <path d="M514 320h136v72H514Z" fill="#0a4a73"/>
+    <path d="M505 282h156v38c-46 18-101 18-156 0Z" fill="url(#metal)" stroke="#071827" stroke-width="5"/>
+    <path d="M523 291v40M551 286v50M581 286v50M611 291v40M639 297v29" stroke="#071827" stroke-opacity="0.55" stroke-width="6"/>
+    <rect x="532" y="426" width="90" height="235" rx="32" fill="#0d2638"/>
+    <circle cx="578" cy="392" r="18" fill="#bb4027"/>
+    <path d="M560 704h46" stroke="#0b1621" stroke-width="11" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#smallShadow)" transform="rotate(12 908 545)">
+    <rect x="820" y="420" width="315" height="70" rx="35" fill="#0b1621"/>
+    <path d="M850 438h220c53 0 91 20 119 54l-314 35c-31 3-58-20-61-51-2-19 12-36 36-38Z" fill="url(#metal)"/>
+    <rect x="790" y="536" width="290" height="42" rx="21" fill="#bb4027"/>
+    <circle cx="823" cy="557" r="14" fill="#f8fafc" opacity="0.82"/>
+  </g>
+
+  <g filter="url(#smallShadow)" transform="rotate(-18 1040 644)">
+    <rect x="930" y="595" width="340" height="54" rx="27" fill="url(#metal)"/>
+    <rect x="986" y="628" width="250" height="46" rx="23" fill="#071827"/>
+    <circle cx="986" cy="622" r="35" fill="none" stroke="url(#metal)" stroke-width="15"/>
+    <circle cx="1162" cy="616" r="30" fill="none" stroke="url(#metal)" stroke-width="13"/>
+  </g>
+
+  <g filter="url(#smallShadow)">
+    <rect x="1070" y="335" width="202" height="250" rx="26" fill="#e8e4d2"/>
+    <rect x="1098" y="366" width="146" height="32" rx="16" fill="#bdc4c8" opacity="0.65"/>
+    <rect x="1098" y="426" width="114" height="18" rx="9" fill="#bb4027" opacity="0.85"/>
+    <rect x="1098" y="465" width="134" height="18" rx="9" fill="#254357" opacity="0.92"/>
+    <rect x="1098" y="504" width="96" height="18" rx="9" fill="#254357" opacity="0.7"/>
+  </g>
+
+  <g filter="url(#smallShadow)" transform="rotate(8 1268 652)">
+    <rect x="1190" y="542" width="185" height="265" rx="22" fill="#101f2d" stroke="#2a3d4f" stroke-width="4"/>
+    <rect x="1220" y="578" width="124" height="34" rx="17" fill="#e8e4d2" opacity="0.92"/>
+    <rect x="1224" y="652" width="114" height="18" rx="9" fill="#bb4027"/>
+    <rect x="1224" y="690" width="86" height="18" rx="9" fill="#b7c3cf" opacity="0.7"/>
+  </g>
+
+  <g filter="url(#smallShadow)" opacity="0.96">
+    <path d="M260 650c78-83 182-118 310-106 25 76 17 143-25 201-95-9-190-40-285-95Z" fill="#111f2e"/>
+    <path d="M300 660c77-45 159-66 247-62" fill="none" stroke="#31475b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M342 708c66-36 126-50 180-42" fill="none" stroke="#263b4d" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#smallShadow)">
+    <rect x="220" y="470" width="195" height="126" rx="24" fill="#e8e4d2"/>
+    <rect x="246" y="500" width="118" height="18" rx="9" fill="#bb4027"/>
+    <rect x="246" y="536" width="134" height="15" rx="8" fill="#0a4a73" opacity="0.75"/>
+    <rect x="246" y="566" width="84" height="15" rx="8" fill="#0a4a73" opacity="0.5"/>
+  </g>
+
+  <g filter="url(#smallShadow)" transform="rotate(-4 700 805)">
+    <rect x="600" y="742" width="320" height="86" rx="18" fill="#0b1621" stroke="#2a3d4f" stroke-width="4"/>
+    <rect x="632" y="770" width="238" height="17" rx="8" fill="#f8fafc" opacity="0.65"/>
+    <rect x="632" y="800" width="152" height="14" rx="7" fill="#bb4027" opacity="0.86"/>
+  </g>
+
+  <g opacity="0.28">
+    <circle cx="1405" cy="260" r="115" fill="#bb4027"/>
+    <circle cx="1384" cy="246" r="110" fill="#071827"/>
+    <path d="M92 238h250M88 276h164M1280 825h210M1324 858h114" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+  </g>
+</svg>

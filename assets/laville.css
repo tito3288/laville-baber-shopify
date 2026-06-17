@@ -296,27 +296,35 @@ main {
 /* ================= HERO ================= */
 .lv-hero {
   background:
-    radial-gradient(circle at 80% 20%, rgba(187, 64, 39, 0.28), transparent 38%),
-    linear-gradient(135deg, var(--lv-background), var(--lv-background) 52%, rgba(10, 74, 115, 0.38));
+    linear-gradient(90deg, rgba(7, 24, 39, 0.98) 0%, rgba(7, 24, 39, 0.92) 48%, rgba(7, 24, 39, 0.58) 100%),
+    radial-gradient(circle at 82% 18%, rgba(187, 64, 39, 0.24), transparent 34%),
+    radial-gradient(circle at 68% 72%, rgba(10, 74, 115, 0.42), transparent 38%),
+    linear-gradient(135deg, #071827, #0d2434 58%, #273d4d);
+  border-bottom: 1px solid var(--lv-border);
 }
 .lv-hero__inner {
   display: grid;
-  gap: 32px;
-  padding-block: 40px;
+  gap: 34px;
+  padding-block: 42px 46px;
+}
+.lv-hero__copy {
+  position: relative;
+  z-index: 1;
 }
 .lv-hero__title {
-  font-size: 48px;
+  max-width: 720px;
+  font-size: 46px;
   font-weight: 900;
   text-transform: uppercase;
-  line-height: 0.9;
-  margin: 12px 0 0;
+  line-height: 0.92;
+  margin: 14px 0 0;
   color: var(--lv-foreground);
 }
 .lv-hero__lede {
-  margin: 20px 0 0;
-  max-width: 36rem;
+  margin: 22px 0 0;
+  max-width: 42rem;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--lv-secondary);
 }
 .lv-hero__cta {
@@ -325,54 +333,115 @@ main {
   flex-direction: column;
   gap: 12px;
 }
+.lv-hero__trust {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 26px 0 0;
+  max-width: 620px;
+}
+.lv-hero__trust div {
+  border: 1px solid rgba(183, 195, 207, 0.18);
+  border-radius: 16px;
+  background: rgba(16, 31, 45, 0.64);
+  padding: 12px 14px;
+}
+.lv-hero__trust dt,
+.lv-hero__trust dd {
+  margin: 0;
+}
+.lv-hero__trust dt {
+  font-family: var(--lv-font-heading);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--lv-foreground);
+}
+.lv-hero__trust dd {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lv-muted);
+}
 .lv-hero .lv-eyebrow {
   display: inline-flex;
-  background: rgba(187, 64, 39, 0.1);
+  border: 1px solid rgba(187, 64, 39, 0.26);
+  background: rgba(187, 64, 39, 0.12);
   border-radius: 999px;
   padding: 8px 16px;
   letter-spacing: 0.1em;
 }
 
-/* hero decorative panel */
+/* hero media panel */
 .lv-hero__panel {
-  border: 1px solid var(--lv-border);
-  border-radius: 32px;
-  background: linear-gradient(135deg, var(--lv-subtle), var(--lv-surface));
-  padding: 20px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  border: 1px solid rgba(183, 195, 207, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(16, 31, 45, 0.68);
+  padding: 12px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(6px);
 }
 .lv-hero__stage {
   position: relative;
-  min-height: 288px;
+  min-height: 320px;
   overflow: hidden;
-  border: 1px solid var(--lv-border);
-  border-radius: 24px;
+  border: 1px solid rgba(183, 195, 207, 0.2);
+  border-radius: 22px;
   background: var(--lv-background);
-  padding: 20px;
+  isolation: isolate;
+}
+.lv-hero__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(7, 24, 39, 0.08), rgba(7, 24, 39, 0.52)),
+    radial-gradient(circle at 16% 14%, rgba(248, 250, 252, 0.14), transparent 26%);
+  pointer-events: none;
+}
+.lv-hero__image {
+  display: block;
+  width: 100%;
+  min-height: 320px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.015);
 }
 .lv-hero__badge {
   position: absolute;
-  left: 24px;
-  top: 24px;
+  left: 18px;
+  top: 18px;
+  z-index: 2;
   border-radius: 999px;
   background: var(--lv-accent);
-  padding: 8px 16px;
+  padding: 9px 16px;
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
 }
 .lv-hero__caption {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  border: 1px solid var(--lv-border);
-  border-radius: 24px;
-  background: rgba(16, 31, 45, 0.95);
-  padding: 16px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  border: 1px solid rgba(183, 195, 207, 0.24);
+  border-radius: 18px;
+  background: rgba(7, 24, 39, 0.78);
+  padding: 16px 18px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
 }
 .lv-hero__caption-eyebrow {
   margin: 0;
@@ -387,74 +456,28 @@ main {
   font-weight: 800;
   color: var(--lv-foreground);
 }
-.lv-hero__tool { position: absolute; }
-.lv-hero__tool--a {
-  right: 32px;
-  top: 32px;
-  height: 176px;
-  width: 96px;
-  border-radius: 32px;
-  border: 8px solid var(--lv-background);
-  background: var(--lv-cream);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
-}
-.lv-hero__tool--a .lv-hero__tool-a1 {
-  margin: 20px auto 0;
-  height: 32px;
-  width: 64px;
-  border-radius: 12px;
-  background: var(--lv-accent);
-}
-.lv-hero__tool--a .lv-hero__tool-a2 {
-  margin: 16px auto 0;
-  height: 80px;
-  width: 48px;
-  border-radius: 12px 12px 24px 24px;
-  background: var(--lv-primary);
-}
-.lv-hero__tool--b {
-  right: 128px;
-  top: 80px;
-  height: 144px;
-  width: 96px;
-  transform: rotate(6deg);
-  border-radius: 24px;
-  border: 8px solid var(--lv-background);
-  background: #fff;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-}
-.lv-hero__tool--b .lv-hero__tool-b1 {
-  margin: 32px auto 0;
-  height: 80px;
-  width: 16px;
-  border-radius: 999px;
-  background: var(--lv-primary);
-}
-.lv-hero__bar-accent {
-  position: absolute;
-  bottom: 96px;
-  right: 32px;
-  height: 20px;
-  width: 144px;
-  transform: rotate(-12deg);
-  border-radius: 999px;
-  background: var(--lv-accent);
-}
 
 @media (min-width: 768px) {
   .lv-hero__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
     align-items: center;
   }
+  .lv-hero__trust { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 640px) {
-  .lv-hero__title { font-size: 60px; }
+  .lv-hero__title { font-size: 58px; }
   .lv-hero__cta { flex-direction: row; }
-  .lv-hero__stage { min-height: 320px; }
+  .lv-hero__stage,
+  .lv-hero__image { min-height: 370px; }
 }
 @media (min-width: 1024px) {
-  .lv-hero__inner { padding-block: 64px; }
-  .lv-hero__title { font-size: 72px; }
+  .lv-hero__inner { padding-block: 72px; }
+  .lv-hero__title { font-size: 70px; }
+  .lv-hero__stage,
+  .lv-hero__image { min-height: 430px; }
+}
+@media (min-width: 1280px) {
+  .lv-hero__title { font-size: 78px; }
 }
 
 /* ================= CATEGORY PILLS ================= */
