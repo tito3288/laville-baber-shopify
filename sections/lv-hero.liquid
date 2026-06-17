@@ -1,0 +1,61 @@
+{{ 'laville.css' | asset_url | stylesheet_tag }}
+
+<section class="lv-hero">
+  <div class="lv-container lv-hero__inner">
+    <div data-reveal="fade-left">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lv-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="lv-head lv-hero__title">{{ section.settings.heading }}</h1>
+      <p class="lv-hero__lede">{{ section.settings.subheading }}</p>
+      <div class="lv-hero__cta">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#shop' }}" class="lv-btn lv-btn--accent">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_label_2 != blank -%}
+          <a href="{{ section.settings.button_link_2 | default: '#service' }}" class="lv-btn lv-btn--outline">{{ section.settings.button_label_2 }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div data-reveal="fade-right" style="--reveal-delay: 120ms" class="lv-hero__panel">
+      <div class="lv-hero__stage" aria-label="Featured barber tools">
+        {%- if section.settings.badge_text != blank -%}
+          <div class="lv-hero__badge">{{ section.settings.badge_text }}</div>
+        {%- endif -%}
+        <div class="lv-hero__caption">
+          <p class="lv-hero__caption-eyebrow">{{ section.settings.caption_eyebrow }}</p>
+          <p class="lv-hero__caption-title">{{ section.settings.caption_title }}</p>
+        </div>
+        <div class="lv-hero__tool lv-hero__tool--a">
+          <div class="lv-hero__tool-a1"></div>
+          <div class="lv-hero__tool-a2"></div>
+        </div>
+        <div class="lv-hero__tool lv-hero__tool--b">
+          <div class="lv-hero__tool-b1"></div>
+        </div>
+        <div class="lv-hero__bar-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LV Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Family-owned over 60 years" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Barber supply made clean, simple, local." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "LaVille Barber Supply & Ed Vogel Company stocks barber and groomer essentials with practical service, sharp pricing, and repair know-how." },
+    { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop Featured Items" },
+    { "type": "url", "id": "button_link", "label": "Primary button link" },
+    { "type": "text", "id": "button_label_2", "label": "Secondary button label", "default": "Repairs & Sharpening" },
+    { "type": "url", "id": "button_link_2", "label": "Secondary button link" },
+    { "type": "header", "content": "Decorative panel" },
+    { "type": "text", "id": "badge_text", "label": "Badge", "default": "Shop ready" },
+    { "type": "text", "id": "caption_eyebrow", "label": "Caption eyebrow", "default": "Featured kit" },
+    { "type": "text", "id": "caption_title", "label": "Caption title", "default": "Clippers, blades, shears & repair support" }
+  ],
+  "presets": [{ "name": "LV Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,25 @@
+{{ 'laville.css' | asset_url | stylesheet_tag }}
+
+<section class="lv-social">
+  <div class="lv-container lv-social__grid">
+    <div data-reveal="fade-left">
+      <p class="lv-head lv-social__stat">{{ section.settings.stat }}</p>
+      <p class="lv-social__stat-text">{{ section.settings.stat_text }}</p>
+    </div>
+    <blockquote data-reveal="fade-right" style="--reveal-delay: 120ms" class="lv-social__quote">
+      {{ section.settings.quote }}
+    </blockquote>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LV Social Proof",
+  "settings": [
+    { "type": "text", "id": "stat", "label": "Stat", "default": "3rd" },
+    { "type": "textarea", "id": "stat_text", "label": "Stat text", "default": "generation of barber suppliers in the Potoczky family." },
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "“We appreciate our customers for their business and loyalty — and we built this shop to serve working professionals with dependable products.”" }
+  ],
+  "presets": [{ "name": "LV Social Proof" }]
+}
+{% endschema %}

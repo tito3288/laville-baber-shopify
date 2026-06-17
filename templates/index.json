@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "lv_hero": {
+      "type": "lv-hero",
+      "settings": {}
+    },
+    "lv_categories": {
+      "type": "lv-category-pills",
+      "blocks": {
+        "c1": { "type": "pill", "settings": { "label": "Clippers" } },
+        "c2": { "type": "pill", "settings": { "label": "Trimmers" } },
+        "c3": { "type": "pill", "settings": { "label": "Blades" } },
+        "c4": { "type": "pill", "settings": { "label": "Shears" } },
+        "c5": { "type": "pill", "settings": { "label": "Capes" } },
+        "c6": { "type": "pill", "settings": { "label": "Combs" } },
+        "c7": { "type": "pill", "settings": { "label": "Cleaning" } },
+        "c8": { "type": "pill", "settings": { "label": "Barber Shop" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"]
+    },
+    "lv_products": {
+      "type": "lv-product-grid",
+      "blocks": {
+        "p1": { "type": "product_card", "settings": { "label": "SALE", "title": "BaBylissPRO LithiumFX+ Trimmer & Shaver Combo", "price": "$175.00", "compare_price": "$219.95", "sketch": "clipper", "button_label": "Add to Cart" } },
+        "p2": { "type": "product_card", "settings": { "label": "PRE-ORDER", "title": "JRL Magnetic Straight Edge Razor", "price": "$25.00", "sketch": "razor", "button_label": "Buy Now" } },
+        "p3": { "type": "product_card", "settings": { "label": "RAZOR BLADES", "title": "Tondeo TSS 3 Razor Blade", "price": "$12.00", "sketch": "blade", "button_label": "Buy Now" } },
+        "p4": { "type": "product_card", "settings": { "label": "MACHINES", "title": "XCeed Professional Hair Clipper with IN2 Vector Motor", "price": "$285.00", "sketch": "machine", "button_label": "Buy Now" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"]
+    },
+    "lv_services": {
+      "type": "lv-service-cards",
+      "blocks": {
+        "s1": { "type": "service", "settings": { "icon": "S", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
+        "s2": { "type": "service", "settings": { "icon": "B", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
+        "s3": { "type": "service", "settings": { "icon": "C", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
+        "s4": { "type": "service", "settings": { "icon": "P", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "lv_social": {
+      "type": "lv-social-proof",
+      "settings": {}
+    },
+    "lv_visit": {
+      "type": "lv-visit-cta",
+      "settings": {}
+    }
+  },
+  "order": ["lv_hero", "lv_categories", "lv_products", "lv_services", "lv_social", "lv_visit"]
+}

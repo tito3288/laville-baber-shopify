@@ -1,0 +1,125 @@
+{{ 'laville.css' | asset_url | stylesheet_tag }}
+<script>document.documentElement.classList.add('lv-has-reveal');</script>
+
+<header class="lv-header">
+  {%- if section.settings.show_marquee and section.settings.marquee_items != blank -%}
+    {%- assign marquee_items = section.settings.marquee_items | split: ',' -%}
+    <div class="lv-marquee" aria-label="Featured barber supply products and services">
+      <div class="lv-marquee__track">
+        {%- for item in marquee_items -%}
+          <span class="lv-marquee__item">{{ item | strip }}</span>
+        {%- endfor -%}
+        {%- comment -%} duplicated for a seamless loop {%- endcomment -%}
+        {%- for item in marquee_items -%}
+          <span class="lv-marquee__item">{{ item | strip }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="lv-header__bar">
+    <a href="{{ routes.root_url }}" aria-label="{{ shop.name }} home" class="lv-header__logo">
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 256 }}"
+          alt="{{ section.settings.logo.alt | default: shop.name }} logo"
+          width="{{ section.settings.logo.width }}"
+          height="{{ section.settings.logo.height }}"
+          loading="eager"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'laville-barber-supply-logo.png' | asset_url }}"
+          alt="{{ shop.name }} logo"
+          width="200"
+          height="62"
+          loading="eager"
+        >
+      {%- endif -%}
+    </a>
+
+    <div class="lv-header__search">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="lv-search">
+        <label class="visually-hidden" for="lv-search-desktop">Search products</label>
+        <input
+          id="lv-search-desktop"
+          type="search"
+          name="q"
+          placeholder="{{ section.settings.search_placeholder }}"
+          value="{{ search.terms | escape }}"
+        >
+        <span aria-hidden="true" class="lv-search__icon"></span>
+      </form>
+    </div>
+
+    <nav class="lv-header__nav" aria-label="Primary navigation">
+      <a href="{{ routes.root_url }}#shop">Shop</a>
+      <a href="{{ routes.root_url }}#cats">Categories</a>
+      <a href="{{ routes.root_url }}#service">Repairs</a>
+      <a href="{{ routes.root_url }}#visit">Visit</a>
+      <a href="{{ routes.cart_url }}" class="lv-cart">Cart {{ cart.item_count }}</a>
+    </nav>
+
+    <button
+      id="lv-menu-toggle"
+      class="lv-burger"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="lv-mobile-nav"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div id="lv-mobile-nav" class="lv-mobile-nav" hidden>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="lv-search">
+      <label class="visually-hidden" for="lv-search-mobile">Search products</label>
+      <input id="lv-search-mobile" type="search" name="q" placeholder="Search products">
+      <span aria-hidden="true" class="lv-search__icon"></span>
+    </form>
+    <nav aria-label="Mobile navigation">
+      <a href="{{ routes.root_url }}#shop">Shop Products</a>
+      <a href="{{ routes.root_url }}#cats">Categories</a>
+      <a href="{{ routes.root_url }}#service">Sharpening &amp; Repairs</a>
+      <a href="{{ routes.root_url }}#visit">Visit Store</a>
+      <a href="{{ routes.cart_url }}">Cart ({{ cart.item_count }})</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('lv-menu-toggle');
+    var nav = document.getElementById('lv-mobile-nav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+      var open = nav.hasAttribute('hidden');
+      if (open) { nav.removeAttribute('hidden'); } else { nav.setAttribute('hidden', ''); }
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "LV Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search clippers, blades, shears, repairs"
+    },
+    { "type": "header", "content": "Announcement marquee" },
+    { "type": "checkbox", "id": "show_marquee", "label": "Show scrolling marquee", "default": true },
+    {
+      "type": "textarea",
+      "id": "marquee_items",
+      "label": "Marquee items (comma separated)",
+      "default": "Fresh clipper blades, Pro shears, Trimmers, Straight razors, Barber capes, Sanitizing essentials, Blade grinding, Clipper repair"
+    }
+  ]
+}
+{% endschema %}

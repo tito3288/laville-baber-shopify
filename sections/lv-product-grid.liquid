@@ -1,0 +1,90 @@
+{{ 'laville.css' | asset_url | stylesheet_tag }}
+
+<section id="shop" class="lv-container lv-products">
+  <div data-reveal class="lv-products__head">
+    <div>
+      <p class="lv-eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="lv-head lv-products__title">{{ section.settings.heading }}</h2>
+    </div>
+    {%- if section.settings.view_all_link != blank -%}
+      <a class="lv-products__viewall" href="{{ section.settings.view_all_link }}">View all &rarr;</a>
+    {%- endif -%}
+  </div>
+
+  <div class="lv-products__grid">
+    {%- for block in section.blocks -%}
+      <article
+        data-reveal
+        style="--reveal-delay: {{ forloop.index0 | times: 90 }}ms"
+        class="lv-card"
+        {{ block.shopify_attributes }}
+      >
+        <div class="lv-sketch lv-sketch--{{ block.settings.sketch }}" aria-hidden="true"></div>
+        <div class="lv-card__body">
+          <p class="lv-card__label">{{ block.settings.label }}</p>
+          <h3 class="lv-card__title">{{ block.settings.title }}</h3>
+          <p class="lv-card__price">
+            <span class="price">{{ block.settings.price }}</span>
+            {%- if block.settings.compare_price != blank -%}
+              <span class="compare"> {{ block.settings.compare_price }}</span>
+            {%- endif -%}
+          </p>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="lv-btn lv-btn--accent lv-card__btn">{{ block.settings.button_label }}</a>
+          {%- else -%}
+            <button type="button" class="lv-btn lv-btn--accent lv-card__btn">{{ block.settings.button_label }}</button>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LV Product Grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Quick shop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Popular products" },
+    { "type": "url", "id": "view_all_link", "label": "View all link" }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "FEATURED" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$0.00" },
+        { "type": "text", "id": "compare_price", "label": "Compare-at price (optional)" },
+        {
+          "type": "select",
+          "id": "sketch",
+          "label": "Illustration style",
+          "options": [
+            { "value": "clipper", "label": "Clipper" },
+            { "value": "razor", "label": "Razor" },
+            { "value": "blade", "label": "Blade" },
+            { "value": "machine", "label": "Machine" }
+          ],
+          "default": "clipper"
+        },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Buy Now" },
+        { "type": "url", "id": "link", "label": "Button link (leave blank for non-clickable demo)" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "LV Product Grid",
+      "blocks": [
+        { "type": "product_card", "settings": { "label": "SALE", "title": "BaBylissPRO LithiumFX+ Trimmer & Shaver Combo", "price": "$175.00", "compare_price": "$219.95", "sketch": "clipper", "button_label": "Add to Cart" } },
+        { "type": "product_card", "settings": { "label": "PRE-ORDER", "title": "JRL Magnetic Straight Edge Razor", "price": "$25.00", "sketch": "razor", "button_label": "Buy Now" } },
+        { "type": "product_card", "settings": { "label": "RAZOR BLADES", "title": "Tondeo TSS 3 Razor Blade", "price": "$12.00", "sketch": "blade", "button_label": "Buy Now" } },
+        { "type": "product_card", "settings": { "label": "MACHINES", "title": "XCeed Professional Hair Clipper with IN2 Vector Motor", "price": "$285.00", "sketch": "machine", "button_label": "Buy Now" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

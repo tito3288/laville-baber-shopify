@@ -1,0 +1,49 @@
+{{ 'laville.css' | asset_url | stylesheet_tag }}
+
+<section id="cats" class="lv-categories">
+  <div class="lv-container lv-categories__grid">
+    {%- for block in section.blocks -%}
+      <a
+        href="{{ block.settings.link | default: '#shop' }}"
+        class="lv-pill"
+        data-reveal
+        style="--reveal-delay: {{ forloop.index0 | times: 45 }}ms"
+        {{ block.shopify_attributes }}
+      >
+        {{ block.settings.label }}
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LV Category Pills",
+  "blocks": [
+    {
+      "type": "pill",
+      "name": "Category",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "LV Category Pills",
+      "blocks": [
+        { "type": "pill", "settings": { "label": "Clippers" } },
+        { "type": "pill", "settings": { "label": "Trimmers" } },
+        { "type": "pill", "settings": { "label": "Blades" } },
+        { "type": "pill", "settings": { "label": "Shears" } },
+        { "type": "pill", "settings": { "label": "Capes" } },
+        { "type": "pill", "settings": { "label": "Combs" } },
+        { "type": "pill", "settings": { "label": "Cleaning" } },
+        { "type": "pill", "settings": { "label": "Barber Shop" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
