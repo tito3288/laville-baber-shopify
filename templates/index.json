@@ -41,10 +41,10 @@
         "subheading": "Sharpening, grinding, and repair support from the same local counter that stocks your everyday barber essentials."
       },
       "blocks": {
-        "s1": { "type": "service", "settings": { "icon": "S", "meta": "Shears", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
-        "s2": { "type": "service", "settings": { "icon": "B", "meta": "Blades", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
-        "s3": { "type": "service", "settings": { "icon": "C", "meta": "Machines", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
-        "s4": { "type": "service", "settings": { "icon": "P", "meta": "Counter help", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
+        "s1": { "type": "service", "settings": { "meta": "Shears", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
+        "s2": { "type": "service", "settings": { "meta": "Blades", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
+        "s3": { "type": "service", "settings": { "meta": "Machines", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
+        "s4": { "type": "service", "settings": { "meta": "Counter help", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },

@@ -20,7 +20,6 @@
           {{ block.shopify_attributes }}
         >
           <div class="lv-service__top">
-            <p class="lv-service__icon">{{ block.settings.icon }}</p>
             {%- if block.settings.meta != blank -%}
               <p class="lv-service__meta">{{ block.settings.meta }}</p>
             {%- endif -%}
@@ -46,7 +45,6 @@
       "type": "service",
       "name": "Service",
       "settings": [
-        { "type": "text", "id": "icon", "label": "Icon letter", "default": "S" },
         { "type": "text", "id": "meta", "label": "Service tag", "default": "Bench service" },
         { "type": "text", "id": "title", "label": "Title" },
         { "type": "textarea", "id": "text", "label": "Description" },
@@ -68,10 +66,10 @@
     {
       "name": "LV Service Cards",
       "blocks": [
-        { "type": "service", "settings": { "icon": "S", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
-        { "type": "service", "settings": { "icon": "B", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
-        { "type": "service", "settings": { "icon": "C", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
-        { "type": "service", "settings": { "icon": "P", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
+        { "type": "service", "settings": { "meta": "Shears", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
+        { "type": "service", "settings": { "meta": "Blades", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
+        { "type": "service", "settings": { "meta": "Machines", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
+        { "type": "service", "settings": { "meta": "Counter help", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
       ]
     }
   ]

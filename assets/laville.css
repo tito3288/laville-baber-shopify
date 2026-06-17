@@ -927,6 +927,16 @@ main {
   border-radius: 999px;
   background: rgba(183, 195, 207, 0.08);
 }
+.lv-service::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 46px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--lv-accent);
+}
 .lv-service--primary {
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.16), transparent 28%),
@@ -942,39 +952,26 @@ main {
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
-  margin-bottom: 24px;
-}
-.lv-service__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  width: 48px;
-  margin: 0;
-  border-radius: 14px;
-  font-size: 18px;
-  font-weight: 900;
+  margin: 24px 0 28px;
 }
 .lv-service__meta {
   margin: 0;
-  border: 1px solid rgba(183, 195, 207, 0.18);
+  border: 1px solid rgba(187, 64, 39, 0.35);
   border-radius: 999px;
-  padding: 7px 10px;
-  color: var(--lv-muted);
+  background: rgba(187, 64, 39, 0.11);
+  padding: 8px 12px;
+  color: var(--lv-secondary);
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.lv-service--primary .lv-service__icon {
-  background: #fff;
-  color: var(--lv-primary);
-}
-.lv-service--surface .lv-service__icon {
-  background: var(--lv-accent);
-  color: #fff;
+.lv-service--primary .lv-service__meta {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.82);
 }
 .lv-service__title {
   position: relative;
