@@ -35,21 +35,36 @@
     },
     "lv_services": {
       "type": "lv-service-cards",
+      "settings": {
+        "eyebrow": "Service counter",
+        "heading": "Repairs that keep tools working",
+        "subheading": "Sharpening, grinding, and repair support from the same local counter that stocks your everyday barber essentials."
+      },
       "blocks": {
-        "s1": { "type": "service", "settings": { "icon": "S", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
-        "s2": { "type": "service", "settings": { "icon": "B", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
-        "s3": { "type": "service", "settings": { "icon": "C", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
-        "s4": { "type": "service", "settings": { "icon": "P", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
+        "s1": { "type": "service", "settings": { "icon": "S", "meta": "Shears", "title": "Shear Sharpening", "text": "Precision sharpening from the Ed Vogel Company side of LaVille.", "style": "primary" } },
+        "s2": { "type": "service", "settings": { "icon": "B", "meta": "Blades", "title": "Blade Grinding", "text": "Grinding for barber and animal grooming blades of all types.", "style": "surface" } },
+        "s3": { "type": "service", "settings": { "icon": "C", "meta": "Machines", "title": "Clipper & Dryer Repairs", "text": "Keep daily-use tools out of the junk drawer and back on station.", "style": "surface" } },
+        "s4": { "type": "service", "settings": { "icon": "P", "meta": "Counter help", "title": "Product Help", "text": "Straight answers when you need the right tool, blade, or replacement part.", "style": "surface" } }
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },
     "lv_social": {
       "type": "lv-social-proof",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Local shop history",
+        "stat": "3rd",
+        "stat_text": "generation of barber suppliers in the Potoczky family.",
+        "quote_label": "From the counter",
+        "quote": "“We appreciate our customers for their business and loyalty — and we built this shop to serve working professionals with dependable products.”"
+      }
     },
     "lv_visit": {
       "type": "lv-visit-cta",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Visit or call",
+        "heading": "Need product help?",
+        "text": "Send us a note or visit LaVille Barber Supply at 419 W Ewing Ave. South Bend, IN 46613."
+      }
     }
   },
   "order": ["lv_hero", "lv_categories", "lv_products", "lv_services", "lv_social", "lv_visit"]

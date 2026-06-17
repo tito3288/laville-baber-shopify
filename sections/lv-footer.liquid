@@ -2,8 +2,11 @@
 
 <footer class="lv-footer">
   <div class="lv-container lv-footer__inner">
-    <p>{{ section.settings.copyright }}</p>
-    <p>{{ section.settings.note }}</p>
+    <div>
+      <p class="lv-footer__brand">{{ section.settings.copyright }}</p>
+      <p class="lv-footer__tagline">{{ section.settings.tagline }}</p>
+    </div>
+    <p class="lv-footer__note">{{ section.settings.note }}</p>
   </div>
 </footer>
 
@@ -34,6 +37,7 @@
   "name": "LV Footer",
   "settings": [
     { "type": "text", "id": "copyright", "label": "Copyright", "default": "© LaVille Barber Supply" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Barber supply, sharpening, and repair support in South Bend." },
     { "type": "text", "id": "note", "label": "Note", "default": "574-288-7852 · Prices are subject to change." }
   ]
 }

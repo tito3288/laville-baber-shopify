@@ -1,32 +1,34 @@
 {{ 'laville.css' | asset_url | stylesheet_tag }}
 
-<section id="visit" class="lv-container lv-visit">
-  <div data-reveal class="lv-visit__card">
-    <div class="lv-visit__main">
-      <p class="lv-eyebrow">{{ section.settings.eyebrow }}</p>
-      <h2 class="lv-head lv-visit__title">{{ section.settings.heading }}</h2>
-      <p class="lv-visit__text">{{ section.settings.text }}</p>
-      <div class="lv-visit__cta">
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link }}" class="lv-btn lv-btn--accent">{{ section.settings.button_label }}</a>
-        {%- endif -%}
-        {%- if section.settings.button_label_2 != blank -%}
-          <a href="{{ section.settings.button_link_2 }}" class="lv-btn lv-btn--outline">{{ section.settings.button_label_2 }}</a>
-        {%- endif -%}
+<section id="visit" class="lv-visit">
+  <div class="lv-container">
+    <div data-reveal class="lv-visit__card">
+      <div class="lv-visit__main">
+        <p class="lv-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="lv-head lv-visit__title">{{ section.settings.heading }}</h2>
+        <p class="lv-visit__text">{{ section.settings.text }}</p>
+        <div class="lv-visit__cta">
+          {%- if section.settings.button_label != blank -%}
+            <a href="{{ section.settings.button_link }}" class="lv-btn lv-btn--accent">{{ section.settings.button_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank -%}
+            <a href="{{ section.settings.button_link_2 }}" class="lv-btn lv-btn--outline">{{ section.settings.button_label_2 }}</a>
+          {%- endif -%}
+        </div>
       </div>
-    </div>
-    <div class="lv-visit__details">
-      <div class="lv-visit__cell">
-        <p class="lv-visit__cell-label">Address</p>
-        <p>{{ section.settings.address }}</p>
-      </div>
-      <div class="lv-visit__cell">
-        <p class="lv-visit__cell-label">Phone</p>
-        <a href="tel:{{ section.settings.phone | remove: '-' | remove: ' ' }}">{{ section.settings.phone }}</a>
-      </div>
-      <div class="lv-visit__cell">
-        <p class="lv-visit__cell-label">Email</p>
-        <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+      <div class="lv-visit__details">
+        <div class="lv-visit__cell">
+          <p class="lv-visit__cell-label">Address</p>
+          <p>{{ section.settings.address }}</p>
+        </div>
+        <div class="lv-visit__cell">
+          <p class="lv-visit__cell-label">Phone</p>
+          <a href="tel:{{ section.settings.phone | remove: '-' | remove: ' ' }}">{{ section.settings.phone }}</a>
+        </div>
+        <div class="lv-visit__cell">
+          <p class="lv-visit__cell-label">Email</p>
+          <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+        </div>
       </div>
     </div>
   </div>
