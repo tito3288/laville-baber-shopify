@@ -1,18 +1,20 @@
 {{ 'laville.css' | asset_url | stylesheet_tag }}
 
 <section id="cats" class="lv-categories">
-  <div class="lv-container lv-categories__grid">
-    {%- for block in section.blocks -%}
-      <a
-        href="{{ block.settings.link | default: '#shop' }}"
-        class="lv-pill"
-        data-reveal
-        style="--reveal-delay: {{ forloop.index0 | times: 45 }}ms"
-        {{ block.shopify_attributes }}
-      >
-        {{ block.settings.label }}
-      </a>
-    {%- endfor -%}
+  <div class="lv-container">
+    <div class="lv-categories__grid">
+      {%- for block in section.blocks -%}
+        <a
+          href="{{ block.settings.link | default: '#shop' }}"
+          class="lv-pill"
+          data-reveal
+          style="--reveal-delay: {{ forloop.index0 | times: 45 }}ms"
+          {{ block.shopify_attributes }}
+        >
+          <span>{{ block.settings.label }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 

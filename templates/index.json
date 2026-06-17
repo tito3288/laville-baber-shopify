@@ -20,11 +20,16 @@
     },
     "lv_products": {
       "type": "lv-product-grid",
+      "settings": {
+        "eyebrow": "Counter picks",
+        "heading": "Popular products",
+        "subheading": "A tighter look at the tools and supplies working barbers ask for at the counter."
+      },
       "blocks": {
-        "p1": { "type": "product_card", "settings": { "label": "SALE", "title": "BaBylissPRO LithiumFX+ Trimmer & Shaver Combo", "price": "$175.00", "compare_price": "$219.95", "sketch": "clipper", "button_label": "Add to Cart" } },
-        "p2": { "type": "product_card", "settings": { "label": "PRE-ORDER", "title": "JRL Magnetic Straight Edge Razor", "price": "$25.00", "sketch": "razor", "button_label": "Buy Now" } },
-        "p3": { "type": "product_card", "settings": { "label": "RAZOR BLADES", "title": "Tondeo TSS 3 Razor Blade", "price": "$12.00", "sketch": "blade", "button_label": "Buy Now" } },
-        "p4": { "type": "product_card", "settings": { "label": "MACHINES", "title": "XCeed Professional Hair Clipper with IN2 Vector Motor", "price": "$285.00", "sketch": "machine", "button_label": "Buy Now" } }
+        "p1": { "type": "product_card", "settings": { "label": "SALE", "stock_note": "Counter favorite", "visual_tag": "Daily kit", "title": "BaBylissPRO LithiumFX+ Trimmer & Shaver Combo", "note": "A practical trimmer and shaver pairing for cleanups, neck work, and busy stations.", "price": "$175.00", "compare_price": "$219.95", "sketch": "clipper", "button_label": "Add to Cart" } },
+        "p2": { "type": "product_card", "settings": { "label": "PRE-ORDER", "stock_note": "Ask in store", "visual_tag": "Straight edge", "title": "JRL Magnetic Straight Edge Razor", "note": "A controlled razor option for crisp lineups, detail work, and blade swaps.", "price": "$25.00", "sketch": "razor", "button_label": "Buy Now" } },
+        "p3": { "type": "product_card", "settings": { "label": "RAZOR BLADES", "stock_note": "Restock staple", "visual_tag": "Blade pack", "title": "Tondeo TSS 3 Razor Blade", "note": "Sharp replacement blades stocked for barbers who need dependable daily supply.", "price": "$12.00", "sketch": "blade", "button_label": "Buy Now" } },
+        "p4": { "type": "product_card", "settings": { "label": "MACHINES", "stock_note": "Pro grade", "visual_tag": "Clipper shelf", "title": "XCeed Professional Hair Clipper with IN2 Vector Motor", "note": "A higher-output machine for barbers looking for power, control, and longevity.", "price": "$285.00", "sketch": "machine", "button_label": "Buy Now" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"]
     },

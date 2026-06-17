@@ -313,7 +313,7 @@ main {
 }
 .lv-hero__title {
   max-width: 720px;
-  font-size: 46px;
+  font-size: 40px;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 0.92;
@@ -484,29 +484,53 @@ main {
 .lv-categories {
   border-top: 1px solid var(--lv-border);
   border-bottom: 1px solid var(--lv-border);
-  background: var(--lv-background);
+  background:
+    linear-gradient(180deg, rgba(16, 31, 45, 0.92), rgba(7, 24, 39, 0.98)),
+    var(--lv-background);
 }
 .lv-categories__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding-block: 20px;
+  gap: 10px;
+  padding-block: 18px;
 }
 .lv-pill {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--lv-border);
-  border-radius: 24px;
-  background: var(--lv-subtle);
-  padding: 16px;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent),
+    var(--lv-subtle);
+  padding: 15px 14px;
   text-align: center;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 850;
   color: var(--lv-foreground);
   text-decoration: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.lv-pill::before {
+  content: "";
+  position: absolute;
+  inset: auto 14px 9px;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--lv-accent);
+  transition: transform 0.2s ease;
+}
+.lv-pill span {
+  position: relative;
+  z-index: 1;
 }
 .lv-pill:hover {
   border-color: var(--lv-accent);
   background: var(--lv-surface);
+  transform: translateY(-1px);
+}
+.lv-pill:hover::before {
+  transform: scaleX(1);
 }
 @media (min-width: 640px) {
   .lv-categories__grid { grid-template-columns: repeat(4, 1fr); }
@@ -516,13 +540,21 @@ main {
 }
 
 /* ================= PRODUCTS ================= */
-.lv-products { padding-block: 56px; }
+.lv-products {
+  padding-block: 68px 64px;
+  background:
+    linear-gradient(180deg, #f8fafc, #eef2f4);
+  color: #071827;
+}
 .lv-products__head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+}
+.lv-products .lv-eyebrow {
+  color: var(--lv-accent);
 }
 .lv-products__title,
 .lv-services__title {
@@ -531,10 +563,17 @@ main {
   text-transform: uppercase;
   margin: 0;
 }
+.lv-products__lede {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: #52606d;
+  font-size: 16px;
+  line-height: 1.65;
+}
 .lv-products__viewall {
   display: none;
   font-weight: 700;
-  color: var(--lv-secondary);
+  color: #24394a;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -545,40 +584,82 @@ main {
   grid-template-columns: 1fr;
 }
 .lv-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  border: 1px solid var(--lv-border);
-  border-radius: 24px;
-  background: var(--lv-surface);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(7, 24, 39, 0.12);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 22px 44px rgba(7, 24, 39, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.lv-card__body { padding: 20px; }
+.lv-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 54px rgba(7, 24, 39, 0.16);
+}
+.lv-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+.lv-card__kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 .lv-card__label {
   margin: 0;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--lv-accent);
 }
+.lv-card__stock {
+  margin: 0;
+  border-radius: 999px;
+  background: #edf2f5;
+  padding: 6px 9px;
+  color: #52606d;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
 .lv-card__title {
-  margin: 4px 0 0;
+  margin: 8px 0 0;
   min-height: 48px;
   font-weight: 800;
-  font-size: 16px;
-  color: var(--lv-foreground);
+  font-size: 17px;
+  line-height: 1.35;
+  color: #071827;
+}
+.lv-card__note {
+  margin: 12px 0 0;
+  color: #52606d;
+  font-size: 14px;
+  line-height: 1.5;
 }
 .lv-card__price {
-  margin: 8px 0 0;
+  margin: auto 0 0;
+  padding-top: 18px;
+  color: #071827;
 }
-.lv-card__price .price { font-weight: 900; }
+.lv-card__price .price {
+  font-size: 19px;
+  font-weight: 900;
+}
 .lv-card__price .compare {
   font-size: 14px;
-  color: var(--lv-muted);
+  color: #7c8791;
   text-decoration: line-through;
 }
 .lv-card__btn {
   margin-top: 16px;
   width: 100%;
   padding-block: 12px;
+  border-radius: 12px;
 }
 @media (min-width: 640px) {
   .lv-products__title,
@@ -593,86 +674,128 @@ main {
 /* product CSS-art sketches */
 .lv-sketch {
   position: relative;
-  min-height: 208px;
+  min-height: 220px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 20% 20%, rgba(187, 64, 39, 0.16), transparent 34%),
-    linear-gradient(135deg, var(--lv-cream), #ffffff);
+    radial-gradient(circle at 78% 18%, rgba(187, 64, 39, 0.26), transparent 30%),
+    linear-gradient(135deg, #081724, #14283a 64%, #253b4b);
 }
 .lv-sketch::before,
-.lv-sketch::after { position: absolute; content: ""; }
+.lv-sketch::after,
+.lv-sketch__surface {
+  position: absolute;
+  content: "";
+}
+.lv-sketch__tag {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 2;
+  border: 1px solid rgba(248, 250, 252, 0.18);
+  border-radius: 999px;
+  background: rgba(7, 24, 39, 0.62);
+  padding: 7px 10px;
+  color: var(--lv-foreground);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lv-sketch__surface {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+    #07111b;
+  transform: skewY(-4deg);
+  transform-origin: left bottom;
+}
 
 .lv-sketch--clipper::before {
-  inset: 36px auto auto 50%;
-  width: 83px;
-  height: 136px;
-  border: 9px solid var(--lv-background);
-  border-radius: 19px 19px 32px 32px;
-  transform: translateX(-50%) rotate(-8deg);
-  background: linear-gradient(180deg, var(--lv-primary), var(--lv-background));
+  inset: 56px auto auto 50%;
+  z-index: 1;
+  width: 86px;
+  height: 134px;
+  border: 6px solid #071827;
+  border-radius: 18px 18px 30px 30px;
+  transform: translateX(-42%) rotate(-10deg);
+  background: linear-gradient(180deg, #d8d3bf, #0a4a73 42%, #071827);
+  box-shadow: 0 20px 32px rgba(0, 0, 0, 0.34);
 }
 .lv-sketch--clipper::after {
-  top: 30px;
-  left: 50%;
-  width: 90px;
-  height: 22px;
+  top: 46px;
+  left: 52%;
+  z-index: 1;
+  width: 108px;
+  height: 26px;
   border-radius: 7px;
-  transform: translateX(-50%) rotate(-8deg);
-  background: repeating-linear-gradient(90deg, var(--lv-background) 0 6px, var(--lv-border) 6px 9px);
+  transform: translateX(-50%) rotate(-10deg);
+  background: repeating-linear-gradient(90deg, #c8ced4 0 8px, #667684 8px 12px);
 }
 .lv-sketch--razor::before {
-  top: 84px;
+  top: 103px;
   left: 50%;
-  width: 144px;
-  height: 19px;
+  z-index: 1;
+  width: 190px;
+  height: 22px;
   border-radius: 999px;
   transform: translateX(-50%) rotate(-18deg);
-  background: var(--lv-background);
+  background: linear-gradient(90deg, #06101a, #1f3445);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.32);
 }
 .lv-sketch--razor::after {
-  top: 61px;
+  top: 72px;
   left: calc(50% + 40px);
-  width: 64px;
-  height: 38px;
-  border-radius: 6px 16px 16px 6px;
+  z-index: 1;
+  width: 86px;
+  height: 46px;
+  border-radius: 8px 18px 18px 8px;
   transform: translateX(-50%) rotate(-18deg);
-  background: var(--lv-accent);
+  background: linear-gradient(135deg, #f4f0e2, #98a5af);
 }
 .lv-sketch--blade::before {
-  inset: 64px auto auto 50%;
-  width: 132px;
-  height: 64px;
-  border: 7px solid var(--lv-background);
-  border-radius: 10px;
-  transform: translateX(-50%);
+  inset: 70px auto auto 50%;
+  z-index: 1;
+  width: 150px;
+  height: 76px;
+  border: 7px solid #071827;
+  border-radius: 12px;
+  transform: translateX(-50%) rotate(-4deg);
   background: linear-gradient(135deg, #fff, var(--lv-cream));
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
 }
 .lv-sketch--blade::after {
-  top: 89px;
+  top: 99px;
   left: 50%;
+  z-index: 1;
   width: 34px;
   height: 16px;
   border: 6px solid var(--lv-accent);
   border-radius: 999px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(-4deg);
 }
 .lv-sketch--machine::before {
-  top: 59px;
+  top: 64px;
   left: 50%;
-  width: 93px;
-  height: 109px;
+  z-index: 1;
+  width: 112px;
+  height: 118px;
   border-radius: 27px 27px 16px 16px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, var(--lv-primary), var(--lv-background));
+  transform: translateX(-50%) rotate(2deg);
+  background: linear-gradient(180deg, #d9d4c0, var(--lv-primary) 38%, var(--lv-background));
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.32);
 }
 .lv-sketch--machine::after {
-  top: 36px;
+  top: 38px;
   left: 50%;
-  width: 104px;
+  z-index: 1;
+  width: 126px;
   height: 26px;
   border-radius: 8px;
-  transform: translateX(-50%);
-  background: var(--lv-accent);
+  transform: translateX(-50%) rotate(2deg);
+  background: repeating-linear-gradient(90deg, #c9d1d7 0 10px, #667684 10px 14px);
 }
 
 /* ================= SERVICES ================= */
